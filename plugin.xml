@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <runtime>
+   	  <library name="lib/mvcStruct.jar"/>
+   </runtime>
+
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.plugin.ant.MvcPluginCategory"
+            name="MvcPluginCategory">
+      </category>
+      <view
+            category="com.plugin.ant.MvcPluginCategory"
+            class="com.plugin.ant.views.MvcAnalyzeView"
+            icon="icons/sample.png"
+            id="com.plugin.ant.views.MvcAnalyzeView"
+            name="Mvc Analyze"
+            restorable="false">
+      </view>
+   </extension>
+
+
+   
+   
+   <extension point="org.eclipse.ui.popupMenus">
+   <objectContribution
+         adaptable="true"
+         id="com.plugin.ant.popupMenu"
+         name="MVC Project Analyze"
+         objectClass="org.eclipse.core.resources.IResource">
+      <menu
+            id="com.plugin.ant.popupMenu.analyzeMenu"
+            path="additions"
+            label="Analyze">
+         <separator
+               name="additions">
+         </separator>
+      </menu>
+      <action
+               class="com.plugin.ant.actions.MvcAnalyzeAction"
+               icon="icons/sample.png"
+               enablesFor="1"
+               menubarPath="com.plugin.ant.popupMenu.analyzeMenu"
+               id="com.plugin.ant.actions.MvcAnalyzeAction"
+               label="MVC Project Analyze">
+      </action>
+   </objectContribution>
+   </extension>
+</plugin>
